@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #message-box {
+            background-color: #ea48b2;
+            text-align: center;
+            color: white;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        #header {
+            cursor: pointer;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            border-bottom: 1px solid white;
+        }
+
+        #content {
+            padding: 10px;
+            display: none;
+            background-color: #fff;
+        }
+
+        #close {
+            float: right;
+            margin-right: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #close:hover {
+            color: gray;
+        }
+
+        @media (max-width: 768px) {
+            #message-box {
+                width: 90%;
+            }
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#header").click(function () {
+                $("#content").slideToggle("slow");
+            });
+
+            $("#close").click(function () {
+                var confirmClose = confirm("Mesaj kutusunu kapatmak istediğinize emin misiniz?");
+                if (confirmClose) {
+                    $("#message-box").slideUp("slow");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="message-box">
+        <div id="header">
+            <span id="close">×</span>Mesajınız var
+        </div>
+        <div id="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in magna vel dolor efficitur tincidunt vel
+            id ante. Sed varius, ligula sed maximus tincidunt, risus lorem laoreet turpis, et elementum elit orci vel
+            arcu.
+        </div>
+    </div>
+</body>
+
+</html>
